@@ -1,0 +1,194 @@
+/* General App Styling */
+.app {
+  text-align: center;
+  background-color: #ffd4e500;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background-color 0.4s ease-in-out; /* Smooth transition */
+}
+
+/* Cupcake Styling */
+.cupcake {
+  font-size: 10rem;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  z-index: 10;
+}
+
+.cupcake.clicking {
+  transform: scale(0.9);
+  animation: pop-back 0.3s ease-in-out;
+}
+
+.cupcake:hover {
+  transform: scale(1.05); /* Subtle hover effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes pop-back {
+  0% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Gallery Slider */
+.slider {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.6s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 30;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Navigation Buttons */
+.nav-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 50%;
+  z-index: 30;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+  transform: scale(1.2);
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Slides */
+.slides {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  transition: transform 0.7s ease, opacity 0.7s ease; /* Smoother transition */
+  width: 55%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  z-index: 0;
+  border-radius: 15px;
+  pointer-events: none; /* Prevent interaction with non-visible slides */
+}
+
+.slide.active {
+  width: 70%;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  z-index: 10;
+  pointer-events: auto; /* Allow interaction with the active slide */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.slide.prev {
+  transform: translateX(-100%) scale(0.8);
+  opacity: 0.8;
+  z-index: 5;
+}
+
+.slide.next {
+  transform: translateX(100%) scale(0.8);
+  opacity: 0.8;
+  z-index: 5;
+}
+
+.slide.hidden {
+  transform: translateX(200%);
+  opacity: 0;
+  z-index: 0;
+}
+
+/* Slider Closing Animation */
+.slider.closing {
+  animation: slideUp 0.6s ease-in-out forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+/* Animations for Gallery Opening and Closing */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
