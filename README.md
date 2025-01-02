@@ -1,1 +1,1 @@
-## This ia my private picture gallery.
+## This is my private picture gallery.
